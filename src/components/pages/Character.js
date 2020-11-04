@@ -27,7 +27,10 @@ function Character() {
           Authorization: "Bearer HVyql6qHzMTbJ1oJNo-5",
         },
       })
-      .then((response) => setCharacter(response.data.docs[0]));
+      .then((response) => {
+        setCharacter(response.data.docs[0]);
+        console.log(response.data.docs[0]);
+      });
   }, []);
 
   return (
@@ -39,7 +42,7 @@ function Character() {
             <i className="fas fa-yin-yang"></i>
           </Icon>
           <i>Gender: </i>
-          {character.gender && !isNaN(character.gender)
+          {character.gender && character.gender !== "NaN"
             ? character.gender
             : "-"}
         </p>
@@ -48,14 +51,14 @@ function Character() {
             <i className="fas fa-frog"></i>
           </Icon>
           <i>Race: </i>{" "}
-          {character.race && !isNaN(character.gender) ? character.race : "-"}
+          {character.race && character.race !== "NaN" ? character.race : "-"}
         </p>
         <p>
           <Icon>
             <i className="fas fa-chess-rook"></i>
           </Icon>
           <i>Realm: </i>{" "}
-          {character.realm && !isNaN(character.gender) ? character.realm : "-"}
+          {character.realm && character.realm !== "NaN" ? character.realm : "-"}
         </p>
       </Border>
     </React.Fragment>
