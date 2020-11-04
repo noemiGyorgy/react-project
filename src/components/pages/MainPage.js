@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import styled from "styled-components";
-import trailer from "../layout/trailer.mp4";
+import trailer from "../../media/trailer.mp4";
 
 const Background = styled.div`
   background-color: black;

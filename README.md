@@ -4,17 +4,17 @@
 
 ![Front Page](public/home_page.jpg?raw=true "Front Page")
 
+[![button](public/button.png)](https://lotr-info.vercel.app)
+
 This web application provides you with some information about The Lord of the Rings franchise. You can learn about the books, movies and the characters, also you can change the theme from light to dark.
 
 We wanted to build this application to practice React. Because we are fans of the franchise, we chose [The Lord of the Rings open API](https://the-one-api.dev/documentation) to work with.
 
-### Our General Goals
+## Important!
 
-- Software design
-- Layout design
-- Provide an interactive frontend app for [the LOTR API](https://the-one-api.dev/documentation)
+Access for the LOTR API users to all endpoints is limited to 100 requests every 10 minutes. This may cause some issues for our app in some edge cases.
 
-### Our Technical Goals
+## Technical Goals
 
 Practicing:
 
@@ -24,48 +24,10 @@ Practicing:
 - React context API
 - CSS usage
 
-## Getting Started
+## Contributors
 
-To get a local copy up and running follow these steps.
+[Noémi György](https://github.com/noemiGyorgy)
 
-### Prerequisites
+[Gergő Mészáros](https://github.com/Gergo1212)
 
-Install NodeJS on Ubuntu:
-
-- Open up your terminal and run these commands:
-
-```sh
-curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
-sudo apt-get install -y nodejs
-```
-
-### Installation
-
-1. Clone the repo
-
-```sh
-git clone https://github.com/tothmate911/react-project.git
-```
-
-2. Install NPM packages
-
-```sh
-npm install
-npm i save react
-npm i react-dom
-npm i react-scripts
-npm i styled-components
-npm i axios
-```
-
-### Open The App
-
-In the **lotr-api** directory, you can run:
-
-```
-npm start
-```
-
-Runs the app in the development mode.
-
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+[Máté Tóth](https://github.com/tothmate911)

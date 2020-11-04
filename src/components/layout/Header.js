@@ -1,11 +1,11 @@
-import React, { useContext } from 'react';
-import logo from './logo.svg';
-import Navigation from './Navigation';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import AppTheme from './Colors';
-import { ThemeContext } from '../../context/ThemeContext';
-import ThemeToggler from './ThemeToggler';
+import React, { useContext } from "react";
+import logo from "../../media/logo.svg";
+import Navigation from "./Navigation";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+import AppTheme from "./Colors";
+import { ThemeContext } from "../../context/ThemeContext";
+import ThemeToggler from "./ThemeToggler";
 
 function Header() {
   const [theme] = useContext(ThemeContext);

@@ -12,13 +12,13 @@ const Container = styled.div`
 
 const SortingButton = styled.button`
   width: 150px;
-  height: 46px;
+  height: 44px;
   border-radius: 10px 0px 0px 10px;
   border: 1px solid #555;
   background-color: #555;
   color: white;
-  font-weight: bold;
   cursor: pointer;
+  font-family: inherit;
   &:focus {
     outline: none;
   }
@@ -30,6 +30,8 @@ const SearchField = styled.input`
   border-radius: 0px 10px 10px 0px;
   border: 2px solid #555;
   flex-grow: 1;
+  font-family: inherit;
+  padding: 0 10px 0 10px;
   &:focus {
     outline: none;
   }
