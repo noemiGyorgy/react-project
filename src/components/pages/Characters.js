@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -51,11 +52,14 @@ function Characters() {
   const getCharacters = () => {
     if (!dataContext.isCharLoaded) {
       axios
-        .get("https://the-one-api.dev/v2/character", {
-          headers: {
-            Authorization: "Bearer HVyql6qHzMTbJ1oJNo-5",
-          },
-        })
+        .get(
+          `${process.env["REACT_APP_THE_ONE_API"]}${process.env["REACT_APP_CHARACTER"]}`,
+          {
+            headers: {
+              Authorization: `Bearer ${process.env["REACT_APP_ACCESS_TOKEN"]}`,
+            },
+          }
+        )
         .then((response) => {
           setFilteredCharacters(response.data.docs);
           setCharacters(response.data.docs);

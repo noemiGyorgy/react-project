@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
@@ -5,7 +6,7 @@ import styled from "styled-components";
 
 const BookContainer = styled.div`
   display: grid;
-  grid-template-columns: 240px auto;
+  grid-template-columns: 260px auto;
 `;
 
 const ChapterList = styled.ol`
@@ -24,7 +25,7 @@ const Book = () => {
   const [chapters, setChapters] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const accessToken = "HVyql6qHzMTbJ1oJNo-5";
+  const accessToken = `${process.env["REACT_APP_ACCESS_TOKEN"]}`;
 
   const getBookRequest = (bookUrl) => {
     return axios
@@ -54,10 +55,10 @@ const Book = () => {
   const fetchData = () => {
     setIsLoading(true);
 
-    const bookUrl = `https://the-one-api.dev/v2/book/${id}`;
+    const bookUrl = `${process.env["REACT_APP_THE_ONE_API"]}${process.env["REACT_APP_BOOK"]}/${id}`;
     const bookRequest = getBookRequest(bookUrl);
 
-    const chapterUrl = `${bookUrl}/chapter`;
+    const chapterUrl = `${bookUrl}${process.env["REACT_APP_CHAPTER"]}`;
     const chapterRequest = getChapterRequest(chapterUrl);
 
     axios.all([bookRequest, chapterRequest]).then(() => setIsLoading(false));
@@ -75,11 +76,7 @@ const Book = () => {
         <h1>{book.name}</h1>
         <BookContainer>
           <div>
-            <img
-              style={bookImageStyle}
-              src={`/bookImage/${id}.jpg`}
-              alt={book.name}
-            ></img>
+            <img src={`/covers/${id}.jpg`} alt={book.name} />
           </div>
           <div>
             <div>
@@ -93,11 +90,6 @@ const Book = () => {
   }
 
   return content;
-};
-
-const bookImageStyle = {
-  maxHeight: "300px",
-  width: "auto",
 };
 
 export default Book;

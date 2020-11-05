@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState, useContext } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
@@ -74,11 +75,14 @@ export default function Navigation() {
   const getBooks = () => {
     if (!dataContext.isBookLoaded) {
       axios
-        .get("https://the-one-api.dev/v2/book", {
-          headers: {
-            Authorization: "Bearer HVyql6qHzMTbJ1oJNo-5",
-          },
-        })
+        .get(
+          `${process.env["REACT_APP_THE_ONE_API"]}${process.env["REACT_APP_BOOK"]}`,
+          {
+            headers: {
+              Authorization: `Bearer ${process.env["REACT_APP_ACCESS_TOKEN"]}`,
+            },
+          }
+        )
         .then((response) => {
           setBookMenu(response.data.docs);
           dataContext.setBookMenu(response.data.docs);
@@ -99,11 +103,14 @@ export default function Navigation() {
   const getMovies = () => {
     if (!dataContext.isMovieLoaded) {
       axios
-        .get("https://the-one-api.dev/v2/movie", {
-          headers: {
-            Authorization: "Bearer HVyql6qHzMTbJ1oJNo-5",
-          },
-        })
+        .get(
+          `${process.env["REACT_APP_THE_ONE_API"]}${process.env["REACT_APP_MOVIE"]}`,
+          {
+            headers: {
+              Authorization: `Bearer ${process.env["REACT_APP_ACCESS_TOKEN"]}`,
+            },
+          }
+        )
         .then((response) => {
           setMovieMenu(response.data.docs);
           dataContext.setMovieMenu(response.data.docs);

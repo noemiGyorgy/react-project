@@ -19,10 +19,11 @@ const Movie = (props) => {
   const [movie, setMovie] = useState([]);
 
   const getMovieRequest = (movieUrl) => {
-    const accessToken = "HVyql6qHzMTbJ1oJNo-5";
     return axios
       .get(movieUrl, {
-        headers: { Authorization: `Bearer ${accessToken}` },
+        headers: {
+          Authorization: `Bearer ${process.env["REACT_APP_ACCESS_TOKEN"]}`,
+        },
       })
       .then((res) => {
         setMovie(res.data.docs[0]);
@@ -30,7 +31,7 @@ const Movie = (props) => {
   };
 
   useEffect(() => {
-    const movieUrl = `https://the-one-api.dev/v2/movie/${id}`;
+    const movieUrl = `${process.env["REACT_APP_THE_ONE_API"]}${process.env["REACT_APP_MOVIE"]}/${id}`;
     getMovieRequest(movieUrl);
   }, [id]);
 

@@ -22,11 +22,16 @@ function Character() {
 
   useEffect(() => {
     axios
-      .get(`https://the-one-api.dev/v2/character/${getIdFromWindowUrl()}`, {
-        headers: {
-          Authorization: "Bearer HVyql6qHzMTbJ1oJNo-5",
-        },
-      })
+      .get(
+        `${process.env["REACT_APP_THE_ONE_API"]}${
+          process.env["REACT_APP_CHARACTER"]
+        }/${getIdFromWindowUrl()}`,
+        {
+          headers: {
+            Authorization: `Bearer ${process.env["REACT_APP_ACCESS_TOKEN"]}`,
+          },
+        }
+      )
       .then((response) => {
         setCharacter(response.data.docs[0]);
         console.log(response.data.docs[0]);
